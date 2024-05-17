@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 db.connect();
 route(app);
 
-
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
