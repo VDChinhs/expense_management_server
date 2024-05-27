@@ -48,8 +48,12 @@ class TradesController {
         const data = req.body
         try{
             let trade = await Trade.findByIdAndDelete(data.id)
-            if (trade) {
+            let wallet = await Wallet.findById({_id: trade.walletId})
+            let group = await Group.findById({_id: trade.groupId})
+            if (trade && wallet && trade) {
                 console.log("Xóa giao dịch:", trade._id);
+                wallet.money = wallet.money - (group?.type == 0 ? (trade.money) : (trade.money))
+                await wallet.save()
                 res.json({
                     status: true,
                     mes:"Xóa giao dịch thành công"
