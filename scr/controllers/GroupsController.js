@@ -137,6 +137,28 @@ class GroupController{
         }
     }
 
+    async getallthuchi(req, res) {
+        const data = req.query
+        try {
+            let myGroup = await Group.find({ fromId: req.fromId, walletId: data.walletId}).populate('parent')
+            const sortedGroup = myGroup.sort((a, b) => {
+                const nameA = a.name.toLowerCase();
+                const nameB = b.name.toLowerCase();
+                
+                if (nameA < nameB) {
+                  return -1;
+                }
+                if (nameA > nameB) {
+                  return 1;
+                }
+                return 0;
+              });              
+            res.json(sortedGroup)
+        } catch (error) {
+            console.error("Lỗi lấy tất cả group thu chi:", error);
+        }
+    }
+
     async test(req, res) {
         try{
             let group = await Group.find().populate('fromId').populate('walletId')
