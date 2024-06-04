@@ -40,7 +40,11 @@ class TradesController {
                 mes:"Thêm giao dịch thành công",
             })
         }catch(error){
-            console.error("Lỗi khi thêm giao dịch:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi thêm giao dịch:", error._message);
         }
     }
 
@@ -60,7 +64,11 @@ class TradesController {
                 })
             }
         }catch(error){
-            console.error("Lỗi khi xóa giao dịch:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi xóa giao dịch:", error._message);
         }
     }
 
@@ -89,7 +97,11 @@ class TradesController {
                 })
             }
         }catch(error){
-            console.error("Lỗi khi sửa giao dịch:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi sửa giao dịch:", error._message);
         }
     }
 
@@ -104,7 +116,11 @@ class TradesController {
                 })
             }
         }catch(error){
-            console.error("Lỗi khi lấy giao dịch:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi lấy giao dịch:", error._message);
         }
     }
 
@@ -182,7 +198,11 @@ class TradesController {
             }
             
         } catch (error) {
-            console.error("Lỗi lấy giao dịch trong tháng:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy giao dịch trong tháng:", error._message);
         }
     }
 
@@ -257,7 +277,11 @@ class TradesController {
             }
             
         } catch (error) {
-            console.error("Lỗi lấy giao dịch trong tuần:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy giao dịch trong tuần:", error._message);
         }
     }
 
@@ -353,7 +377,11 @@ class TradesController {
             })
 
         } catch (error) {
-            console.error("Lỗi lấy giao dịch các tháng:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy giao dịch các tháng:", error._message);
         }
     }
 
@@ -504,7 +532,11 @@ class TradesController {
                 data: result
             })
         } catch (error) {
-            console.error("Lỗi lấy báo cáo giao dịch ", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy báo cáo giao dịch ", error._message);
         }
     }
 
@@ -598,7 +630,11 @@ class TradesController {
                 data: result
             })
         } catch (error) {
-            console.error("Lỗi lấy báo cáo giao dịch chi tiết ", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy báo cáo giao dịch chi tiết ", error._message);
         }
     }
 }

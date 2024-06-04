@@ -48,7 +48,11 @@ class AccountController {
                 })
             }
         } catch (error) {
-            console.error("Lỗi khi đăng ký tài khoản:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi đăng ký tài khoản:", error._message);
         }
     }
 
@@ -86,7 +90,11 @@ class AccountController {
                 })
             }
         }catch(error){
-            console.error("Lỗi khi kiểm tra đăng nhập:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi kiểm tra đăng nhập:", error._message);
         }
     }
 

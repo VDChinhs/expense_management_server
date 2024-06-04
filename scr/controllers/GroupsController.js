@@ -40,7 +40,11 @@ class GroupController{
                 }) 
             }
         }catch(error){
-            console.error("Lỗi khi thêm nhóm:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi thêm nhóm:", error._message);
         }
     }
 
@@ -58,7 +62,11 @@ class GroupController{
                 })
             }
         }catch(error){
-            console.error("Lỗi khi thêm nhóm:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi thêm nhóm:", error._message);
         }
     }
 
@@ -101,7 +109,11 @@ class GroupController{
                 }) 
             }
         }catch(error){
-            console.error("Lỗi khi sửa nhóm:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi sửa nhóm:", error._message);
         }
     }
 
@@ -122,7 +134,11 @@ class GroupController{
             res.json(values)
             
         } catch (error) {
-            console.error("Lỗi lấy nhóm của tôi:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy nhóm của tôi:", error._message);
         }
     }
 
@@ -133,7 +149,11 @@ class GroupController{
             let groupParent = myGroup.filter((group => group._id.equals(group.parent)))
             res.json(groupParent)
         } catch (error) {
-            console.error("Lỗi lấy nhóm cha của tôi:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy nhóm cha của tôi:", error._message);
         }
     }
 
@@ -155,7 +175,11 @@ class GroupController{
               });              
             res.json(sortedGroup)
         } catch (error) {
-            console.error("Lỗi lấy tất cả group thu chi:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy tất cả group thu chi:", error._message);
         }
     }
 

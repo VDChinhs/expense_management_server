@@ -49,7 +49,11 @@ class WalletsController {
                 }) 
             }
         }catch(error){
-            console.error("Lỗi khi thêm ví:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi thêm ví:", error._message);
         }
     }
 
@@ -67,8 +71,18 @@ class WalletsController {
                     mes:"Xóa ví thành công"
                 })
             }
+            else{
+                res.json({
+                    status: false,
+                    mes:"Ví không tồn tại"
+                })
+            }
         } catch (error) {
-            console.error("Lỗi khi xóa ví:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi xóa ví:", error._message);
         }
     }
 
@@ -99,7 +113,11 @@ class WalletsController {
                 })
             }
         } catch (error) {
-            console.error("Lỗi khi sửa ví:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi sửa ví:", error._message);
         }
     }
 
@@ -114,7 +132,11 @@ class WalletsController {
             }
 
         }catch(error){
-            console.error("Lỗi lấy ví của tôi:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy ví của tôi:", error._message);
         }
     }
 
@@ -129,7 +151,11 @@ class WalletsController {
             }
 
         }catch(error){
-            console.error("Lỗi lấy ví của tôi:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi lấy ví của tôi:", error._message);
         }
     }
 

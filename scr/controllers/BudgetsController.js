@@ -31,7 +31,11 @@ class BudgetsController {
                 mes:"Thêm ngân sách thành công",
             })
         }catch(error){
-            console.error("Lỗi khi thêm ngân sách:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi thêm ngân sách:", error._message);
         }
     }
 
@@ -47,7 +51,11 @@ class BudgetsController {
                 })
             }
         }catch(error){
-            console.error("Lỗi khi thêm ngân sách:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi thêm ngân sách:", error._message);
         }
     }
 
@@ -72,7 +80,11 @@ class BudgetsController {
                 })
             }
         }catch(error){
-            console.error("Lỗi khi sửa ngân sách:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi sửa ngân sách:", error._message);
         }
     }
 
@@ -143,7 +155,11 @@ class BudgetsController {
 
 
         }catch(error){
-            console.error("Lỗi khi lấy ngân sách:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi lấy ngân sách:", error._message);
         }
     }
 
@@ -153,7 +169,11 @@ class BudgetsController {
             res.json(budget)
             console.log(budget);
         }catch(error){
-            console.error("Lỗi khi test ngân sách:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi test ngân sách:", error._message);
         }
     }
 }

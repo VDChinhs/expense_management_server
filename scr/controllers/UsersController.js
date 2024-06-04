@@ -37,7 +37,11 @@ class UsersController{
                 })
             }
         }catch(error){
-            console.error("Lỗi khi đổi mật khẩu:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi đổi mật khẩu:", error._message);
         }
     }
 
@@ -62,7 +66,11 @@ class UsersController{
                 })
             }
         }catch(error){
-            console.error("Lỗi khi xóa tài khoản:", error);
+            res.json({
+                status: false,
+                mes: error._message,
+            })
+            console.error("Lỗi khi xóa tài khoản:", error._message);
         }
     }
 }
